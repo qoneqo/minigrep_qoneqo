@@ -3,8 +3,8 @@ use std::error::Error;
 use std::fs;
 use std::process;
 
-use minigrep::search;
-use minigrep::search_case_insensitive;
+use minigrep_qoneqo::search;
+use minigrep_qoneqo::search_case_insensitive;
 
 fn main() {
     let config = Config::build(env::args()).unwrap_or_else(|err| {

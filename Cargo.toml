@@ -1,12 +1,15 @@
 [package]
-name = "minigrep"
+name = "minigrep_qoneqo"
 version = "0.1.0"
 edition = "2024"
+description = "A simplified clone of the grep command-line utility, built as a learning project."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/qoneqo/minigrep_qoneqo"
 
 [dependencies]
 
 [profile.dev]
-opt-level = 1
+opt-level = 0
 
 [profile.release]
 opt-level = 3
