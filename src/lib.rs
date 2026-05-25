@@ -1,3 +1,26 @@
+//! # Minigrep
+//!
+//! `minigrep_qoneqo` is a simplified clone of the classic `grep` command-line utility,
+//! built as a learning project. It provides basic case-sensitive and case-insensitive
+//! text searching functionality.
+
+/// Searches the `contents` for the `query` string, performing a case-sensitive search.
+///
+/// Returns a list of lines containing the query.
+///
+/// # Examples
+///
+/// ```
+/// use minigrep_qoneqo::search;
+///
+/// let query = "duct";
+/// let contents = "\
+/// Rust:
+/// safe, fast, productive.
+/// Pick three.";
+///
+/// assert_eq!(vec!["safe, fast, productive."], search(query, contents));
+/// ```
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
@@ -5,6 +28,24 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
         .collect()
 }
 
+/// Searches the `contents` for the `query` string, performing a case-insensitive search.
+///
+/// Returns a list of lines containing the query.
+///
+/// # Examples
+///
+/// ```
+/// use minigrep_qoneqo::search_case_insensitive;
+///
+/// let query = "rUsT";
+/// let contents = "\
+/// Rust:
+/// safe, fast, productive.
+/// Pick three.
+/// Trust me.";
+///
+/// assert_eq!(vec!["Rust:", "Trust me."], search_case_insensitive(query, contents));
+/// ```
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let query = query.to_lowercase();
     // let mut results = Vec::new();

@@ -18,13 +18,23 @@ fn main() {
     }
 }
 
+/// Configuration for the `minigrep` application.
+///
+/// Holds the search query, target file path, and whether to perform a case-insensitive search.
 pub struct Config {
+    /// The search query term.
     pub query: String,
+    /// The path to the file to be searched.
     pub file_path: String,
+    /// Whether to perform a case-insensitive search.
     pub ignore_case: bool,
 }
 
 impl Config {
+    /// Builds a new `Config` from an iterator over command-line arguments.
+    ///
+    /// The first argument is typically the path of the executable and is ignored.
+    /// Returns `Err` if either the search query or file path is missing.
     fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
 
@@ -47,6 +57,14 @@ impl Config {
     }
 }
 
+/// Runs the search logic with the given configuration.
+///
+/// Reads the target file and performs a case-sensitive or case-insensitive search
+/// based on the configuration, printing matching lines to standard output.
+///
+/// # Errors
+///
+/// Returns an error if the target file cannot be read.
 fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
 

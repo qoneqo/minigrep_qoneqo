@@ -1,6 +1,6 @@
 [package]
 name = "minigrep_qoneqo"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A simplified clone of the grep command-line utility, built as a learning project."
 license = "MIT OR Apache-2.0"
